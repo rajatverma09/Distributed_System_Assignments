@@ -18,8 +18,9 @@ mpirun --oversubscribe -np 4 mpi_dijkstraVector ./input_dijkstra2.txt ./output_d
 
 **Parallel Quick Sort**<br/>
 ___Assumpsion:___: 
-    .For simplicity we use only closest 2^n process for this alogithm so that merging becomes simple. <br/>
-    .Number of process should be less than size of input array.
+* For simplicity we use only closest 2^n process for this alogithm so that merging becomes simple. <br/>
+* Number of process should be less than size of input array.
+
 **ALGORITHM:**<br/>
 1. Divide The given array into chunks and distribute to all the processes. Used MPI_Scatter for this purpose.
 2. Apply quicksort to all the received chunks.
@@ -27,7 +28,9 @@ ___Assumpsion:___:
 
 **Parallel Dijkstra**<br/>
 ___Assumpsion:___:
-    .input array element should be less then INT_MAX
+* input array element should be less then INT_MAX
+
+
 **ALGORITHM:**<br/>
 1. Serialize the input adjancy matrix to linear vector.
 2. Distribute nodes N amongst p process so every process gets N/p node responsiblity to calculate shortest distance from the source. Every process gets chunks to adjancy matrix in linear fastion. Used MPI_Scatter for this purpose.
