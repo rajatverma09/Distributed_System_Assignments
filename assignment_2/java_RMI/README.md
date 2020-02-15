@@ -10,7 +10,7 @@ java Server <server_port>
 ```
 Run Client as:
 ```
-java Client <server_ip> <sever_port> < sample_input.txt
+java Client <server_ip> <server_port> < sample_input.txt
 ```
 <br/>
 <br/>
