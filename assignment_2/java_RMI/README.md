@@ -15,6 +15,16 @@ java Client <server_ip> <server_port> < sample_input.txt
 <br/>
 <br/>
 
+**ARCHITECTURE**<br>
+1. Defining a remote interface (GraphInterface.java).
+2. Implementing the remote interface (GraphImpl.java).
+3. Server Extends the implentation of remote interface i.e. GraphImpl.
+4. Create rmi registry.
+5. Creating Stub and Skeleton objects from the implementation class.
+6. bind the stub to a name the client will call.
+7. Create and execute the server application program(Server.java).
+8. Create and execute the client application program(Client.java).
+
 **ALGORITHM**<br>
 *The algorithm used to implement the minimum spanning tree is Kruskal using disjoint set union*<br>
 1. mst = 0;
@@ -27,8 +37,7 @@ java Client <server_ip> <server_port> < sample_input.txt
         * mst += weight_of_edge;
         * number_of_edges++;
         * union(u,v);
-6. if(number of edges != n - 1)
-        return -1;
+6. if(number of edges != n - 1) return -1;
 4. return mst;
 
 **Results**<br>
