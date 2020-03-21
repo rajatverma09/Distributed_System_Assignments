@@ -29,8 +29,19 @@ readlines(FileName) ->
     
 start_process(Count, Int_var, Root) -> 
     % This is the first spawned process 
-    Pid = spawn(fun() -> start_process(Count, Int_var+1, self(), Root) end),
-    loop(Pid, Int_var, Count).
+    if
+        Count - 1 > Int_var ->
+        Pid = spawn(fun() -> start_process(Count, Int_var+1, self(), Root) end),
+        loop(Pid, Int_var, Count);
+    true ->
+        receive
+            {Msg, Rec_Int_var, File_content2} ->
+            File_content = concat(File_content2, "Process " ++ integer_to_list(Int_var) ++ " received token " ++ integer_to_list(Msg) ++ " from process " ++ integer_to_list(Rec_Int_var) ++ ".\n"),
+            Root ! {Msg, Int_var, File_content}
+        end
+
+    end.
+        
 
 start_process(Count, Int_var, Last, Root) -> 
 

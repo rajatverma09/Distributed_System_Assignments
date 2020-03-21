@@ -1,0 +1,2 @@
+Process 1 received token 3 from process 0.
+Process 0 received token 3 from process 1.
